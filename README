@@ -1,0 +1,49 @@
+
+  ~ OS X Daap SSH Forward Script
+
+  For the lazy of us that use a remote DAAP server and want to
+  connect to it via SSH port forwarding but can't remember the
+  commands to run.
+
+
+  Usage:
+
+    1. Create a file called `~/.daapforward`
+    2. Update config according to example below
+    3. run `python daap-forward.py`
+    4. Start iTunes and click on the daap share on the left
+    5. \m/
+
+  Config:
+
+    # the name of the server that runs ssh.  If this is also
+    # the server that runs the DAAP share, this is actually
+    # all you have to put into the config
+    ssh-server-name    example.com
+
+    # this is the name of the user used for connecting.
+    # empty or not specified means current user
+    ssh-username       anne
+
+    # if the DAAP server is running on a different computer
+    # on the network the ssh server is on, you have to specify
+    # this as well.  Otherwise localhost is assumed
+    daap-server-name   localhost
+
+    # the port the remote daap server runs on
+    remote-daap-port   3689
+
+    # the local port where daap should "run on"
+    local-daap-port    3689
+
+    # the name of the share.  Now this is the name that is
+    # displayed in iTunes before you actually connect to the
+    # share.  As soon as you are connected that name is
+    # overridden with the actual name on the remote, so make
+    # sure to keep them somewhat synchronized.
+    share-name         Remote iTunes Share
+
+  This script has bad code and just works good enough for
+  accessing remote DAAP shares if you are lazy.  Use it in
+  combination with dyndns or something for your mobile
+  listening pleasure.
